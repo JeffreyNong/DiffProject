@@ -1,0 +1,42 @@
+Your name and company name: _____________Jeffrey Nong_______________________________________________________
+Verify each of the following items with a corresponding checkmark. Incorrect items will incur a 5% penalty on the grade.
+Complete Incomplete diff
+  Researched diff on the Unix man page and on wikipedia
+  diff -v aka --version (prints version, license, and author (you))
+  diff -q aka --brief (reports only whether files are different; silent if they are not)
+  diff -s aka --report-identical-files (reports if files are the same; usual out if they are not)
+  diff -s -q reports identical with identical files, and different with different files (i.e., it never shows
+usual output of lines that are different)
+  diff file1 file2 aka --normal (default behavior)
+ diff -y aka --side-by-side prints common paras unless –suppress-common-lines is set It shows
+a ‘<’ / ’>’ for left/right-hand side, nothing for common paragraphs, except a
+‘|’ for any lines that are different in the common paragraphs.
+ diff -y --left-column (..., prints only the left column of common lines), with ‘(‘ to remind that
+there is a common right-hand paragraph). (‘|’ is shown for differing lines)
+ 
+diff -y --suppress-common-lines ... (side-by-side but doesn't show common lines) lines in a
+common paragraph that differ are shown, along with a ‘|’
+ 
+diff -c NUM aka –context=NUM, (default 3 lines of copied context)
+*** l 2020-03-31 22:51:24.000000000 -0700 (files are l and r)
+--- r 2020-03-31 22:51:40.000000000 -0700
+***************
+*** 1,3 **** (lines of context, *** for left file, --- for right file)
+--- 1,9 ----
++ This is an important (+ means add, - means delete, | means different)
++ notice! It should
++ therefore be located at
++ the beginning of this
++ document!
++
+ diff -u NUM aka –unified=NUM (shows NUM default 3 lines of unified context)
+--- /path/to/original timestamp
++++ /path/to/new timestamp
+@@ -1,3 +1,9 @@
++This is an important
++notice! It should
++therefore be located at
++the beginning of this
++document
+  Used a header file to prototype all functions in diff.h
+  Project directory pushed to new GitHub repository listed above using GitHub client. 
