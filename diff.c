@@ -141,6 +141,38 @@ void init_options_files(int argc, const char* argv[]) {
 
   if (showbrief && different) { printf("The files are different.\n\n");   exit(0); }
 }
+void Regular(para* p, para* q) {
+    int foundmatch = 0;
+
+    para* qlast = q;
+    while (p != NULL) {
+        qlast = q;
+        foundmatch = 0;
+        while (q != NULL && (foundmatch = para_equal(p, q)) == 0) {
+            q = para_next(q);
+        }
+        q = qlast;
+
+        if (foundmatch) {
+            while ((foundmatch = para_equal(p, q)) == 0) {
+                para_print(q, printright);
+                q = para_next(q);
+                qlast = q;
+            }
+            para_print(q, printboth);
+            p = para_next(p);
+            q = para_next(q);
+        }
+        else {
+            para_print(p, printleft);
+            p = para_next(p);
+        }
+    }
+    while (q != NULL) {
+        para_print(q, printright);
+        q = para_next(q);
+    }
+}
 
 
 int main(int argc, const char * argv[]) {
